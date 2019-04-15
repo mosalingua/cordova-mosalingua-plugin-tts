@@ -1,18 +1,21 @@
 /*
-
+    Based on original work from
     Cordova Text-to-Speech Plugin
     https://github.com/vilic/cordova-plugin-tts
 
     by VILIC VANE
     https://github.com/vilic
 
+    Modified by Paulo Cristo
+    cristo.paulo@gmail.com
+
     MIT License
+ */
+cordova.define("cordova-mosalingua-plugin-tts.tts", function(require, exports, module) {
 
-*/
-
-exports.speak = function (text) {
-    return new Promise(function (resolve, reject) {
-        var options = {};
+    var TTS = {
+      speak : function (text, opt, success, error) {
+        var options = opt || {};
 
         if (typeof text == 'string') {
             options.text = text;
@@ -20,24 +23,23 @@ exports.speak = function (text) {
             options = text;
         }
 
-        cordova.exec(resolve, reject, 'TTS', 'speak', [options]);
-    });
+        cordova.exec(function () {
+                success();
+            }, function (reason) {
+                error(reason);
+            }, 'TTS', 'speak', [options]);
+    },
+
+    checkLanguage : function(success, error) {
+        cordova.exec(success, error, 'TTS', 'checkLanguage', []);
+    },
+
+    stop : function() {
+     cordova.exec(success, error, 'TTS', 'stop', []);
+    }
+
 };
 
-exports.stop = function() {
-    return new Promise(function (resolve, reject) {
-        cordova.exec(resolve, reject, 'TTS', 'stop', []);
-    });
-};
+module.exports = TTS;
 
-exports.checkLanguage = function() {
-    return new Promise(function (resolve, reject) {
-        cordova.exec(resolve, reject, 'TTS', 'checkLanguage', []);
-    });
-};
-
-exports.openInstallTts = function() {
-    return new Promise(function (resolve, reject) {
-        cordova.exec(resolve, reject, 'TTS', 'openInstallTts', []);
-    });
-};
+});

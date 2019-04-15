@@ -1,32 +1,28 @@
 {
-  "name": "cordova-plugin-tts",
-  "version": "0.2.3",
-  "description": "Cordova Text-to-Speech Plugin",
+  "name": "cordova-mosalingua-plugin-tts",
+  "version": "1.0.0",
+  "description": "Cordova Mosalingua Text-to-Speech Plugin",
   "cordova": {
-    "id": "cordova-plugin-tts",
+    "id": "cordova-mosalingua-plugin-tts",
     "platforms": [
-      "ios",
-      "wp8",
-      "android"
+      "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vilic/cordova-plugin-tts.git"
+    "url": "git+https://github.com/mosalingua/cordova-mosalingua-plugin-tts.git"
   },
   "keywords": [
     "cordova",
     "tts",
     "text-to-speech",
     "ecosystem:cordova",
-    "cordova-ios",
-    "cordova-wp8",
-    "cordova-android"
+    "cordova-ios"
   ],
-  "author": "VILIC VANE",
+  "author": "Paulo Cristo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vilic/cordova-plugin-tts/issues"
+    "url": "https://github.com/mosalingua/cordova-mosalingua-plugin-tts/issues"
   },
-  "homepage": "https://github.com/vilic/cordova-plugin-tts#readme"
+  "homepage": "https://github.com/mosalingua/cordova-mosalingua-plugin-tts#readme"
 }

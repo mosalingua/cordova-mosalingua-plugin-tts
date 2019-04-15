@@ -1,9 +1,13 @@
 /*
+	Based on original work from
 	Cordova Text-to-Speech Plugin
 	https://github.com/vilic/cordova-plugin-tts
 
 	by VILIC VANE
 	https://github.com/vilic
+
+	Modified by Paulo Cristo
+	cristo.paulo@gmail.com
 
 	MIT License
  */
