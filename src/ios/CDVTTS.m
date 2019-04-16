@@ -92,7 +92,8 @@
         AVSpeechUtterance* utterance = [[AVSpeechUtterance new] initWithString:text];
         utterance.voice = (voiceToUse != nil) ? voiceToUse : [AVSpeechSynthesisVoice voiceWithLanguage:locale];
         // Rate expression adjusted manually for a closer match to other platform.
-        utterance.rate = (AVSpeechUtteranceMinimumSpeechRate * 1.5 + AVSpeechUtteranceDefaultSpeechRate) / 2.5 * rate * rate;
+        //utterance.rate = (AVSpeechUtteranceMinimumSpeechRate * 1.5 + AVSpeechUtteranceDefaultSpeechRate) / 2.5 * rate * rate;
+        utterance.rate = (AVSpeechUtteranceMinimumSpeechRate * 1.5 + AVSpeechUtteranceDefaultSpeechRate) / 2 * rate * rate;
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
             utterance.rate = utterance.rate * 2;
