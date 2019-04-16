@@ -46,16 +46,10 @@
     [self.commandDelegate runInBackground:^{
         NSDictionary* options = [command.arguments objectAtIndex:0];
         
-        NSString* category = [options objectForKey:@"category"];
-        
-        /*[[AVAudioSession sharedInstance] setActive:NO withOptions:0 error:nil];
-         if ([category isEqualToString:@"ambient"]) {
-         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient
-         withOptions:0 error:nil];
-         } else {
-         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-         withOptions:AVAudioSessionCategoryOptionDuckOthers error:nil];
-         }*/
+        [[AVAudioSession sharedInstance] setActive:NO withOptions:0 error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient
+                                         withOptions: 0 error: nil];
+        [[AVAudioSession sharedInstance] setActive:YES withOptions: 0 error:nil];
         
         if (callbackId) {
             lastCallbackId = callbackId;
@@ -78,6 +72,15 @@
             locale = @"en-US";
         }
         
+        NSArray *voices = [AVSpeechSynthesisVoice speechVoices];
+        AVSpeechSynthesisVoice *voiceToUse = nil;
+        for(AVSpeechSynthesisVoice *voice in voices) {
+            
+            if([voice.language isEqualToString:locale] && voice.identifier!= nil){
+                voiceToUse = voice;
+            }
+        }
+        
         if (!rate) {
             rate = 1.0;
         }
@@ -87,7 +90,7 @@
         }
         
         AVSpeechUtterance* utterance = [[AVSpeechUtterance new] initWithString:text];
-        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:locale];
+        utterance.voice = (voiceToUse != nil) ? voiceToUse : [AVSpeechSynthesisVoice voiceWithLanguage:locale];
         // Rate expression adjusted manually for a closer match to other platform.
         utterance.rate = (AVSpeechUtteranceMinimumSpeechRate * 1.5 + AVSpeechUtteranceDefaultSpeechRate) / 2.5 * rate * rate;
         
