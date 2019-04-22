@@ -32,11 +32,9 @@
         [self.commandDelegate sendPluginResult:result callbackId:callbackId];
         callbackId = nil;
     }
-    
-    [[AVAudioSession sharedInstance] setActive:NO withOptions:0 error:nil];
+
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient
                                      withOptions: 0 error: nil];
-    [[AVAudioSession sharedInstance] setActive:YES withOptions: 0 error:nil];
     
 }
 
@@ -46,10 +44,8 @@
     [self.commandDelegate runInBackground:^{
         NSDictionary* options = [command.arguments objectAtIndex:0];
         
-        /*[[AVAudioSession sharedInstance] setActive:NO withOptions:0 error:nil];
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                          withOptions: 0 error: nil];
-        [[AVAudioSession sharedInstance] setActive:YES withOptions: 0 error:nil];*/
         
         if (callbackId) {
             lastCallbackId = callbackId;
