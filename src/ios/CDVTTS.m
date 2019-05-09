@@ -35,6 +35,7 @@
 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient
                                      withOptions: 0 error: nil];
+    [[AVAudioSession sharedInstance] setActive:true error:nil];
     
 }
 
@@ -45,7 +46,9 @@
         NSDictionary* options = [command.arguments objectAtIndex:0];
         
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                         withOptions: 0 error: nil];
+                                         withOptions: AVAudioSessionCategoryOptionDuckOthers error: nil];
+        
+        [[AVAudioSession sharedInstance] setActive:true error:nil];
         
         if (callbackId) {
             lastCallbackId = callbackId;
