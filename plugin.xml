@@ -40,5 +40,4 @@
 
     <source-file src="src/android/TTS.java" target-dir="src/com/wordsbaking/cordova/tts" />
   </platform>
-
 </plugin>
