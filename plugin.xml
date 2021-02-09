@@ -7,7 +7,7 @@
   version="1.0.0">
   <name>TTS</name>
   <description>Cordova Mosalingua Text-to-Speech Plugin</description>
-  <author>Paulo Cristo/author>
+  <author>Paulo Cristo</author>
   <license>MIT</license>
   <keywords>cordova,tts,text-to-speech</keywords>
   <repo>https://github.com/mosalingua/cordova-mosalingua-plugin-tts</repo>
@@ -16,15 +16,20 @@
   <js-module src="www/tts.js" name="tts">
     <clobbers target="TTS" />
   </js-module>
+
+  <!-- ios -->
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
         <param name="ios-package" value="CDVTTS"/>
       </feature>
     </config-file>
+
     <header-file src="src/ios/CDVTTS.h" />
     <source-file src="src/ios/CDVTTS.m" />
   </platform>
+
+  <!-- android -->
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <feature name="TTS">
