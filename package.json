@@ -5,7 +5,8 @@
   "cordova": {
     "id": "cordova-mosalingua-plugin-tts",
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "repository": {
@@ -17,7 +18,8 @@
     "tts",
     "text-to-speech",
     "ecosystem:cordova",
-    "cordova-ios"
+    "cordova-ios",
+    "cordova-android"
   ],
   "author": "Paulo Cristo",
   "license": "MIT",
