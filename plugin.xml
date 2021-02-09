@@ -24,11 +24,10 @@
         <param name="ios-package" value="CDVTTS"/>
       </feature>
     </config-file>
-
     <header-file src="src/ios/CDVTTS.h" />
     <source-file src="src/ios/CDVTTS.m" />
   </platform>
-
+  
   <!-- android -->
   <platform name="android">
     <config-file target="config.xml" parent="/*">
@@ -37,7 +36,6 @@
         <param name="onload" value="true" />
       </feature>
     </config-file>
-
     <source-file src="src/android/TTS.java" target-dir="src/com/wordsbaking/cordova/tts" />
   </platform>
 </plugin>
